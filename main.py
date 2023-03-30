@@ -5,15 +5,20 @@ def ligar_lampada(condicao: int) -> str:
     """
     Define o estado de uma lampada
 
+    OBS. ACEITA APENAS 1 E 0 (int)
+
     :param:
     condicao: int -> estado da lampada (0 ou 1)
     """
+    if type(condicao) != int or condicao not in [0, 1]:
+        return "Por favor, insira apenas 1 ou 0"
+
     if condicao == 0:
         # print("Luz apagada")
-        return "Luz apagada"
+        return False
     elif condicao == 1:
         # print("Luz Acesa")
-        return "Luz Acesa"
+        return True
 
 
 def porcentagem(

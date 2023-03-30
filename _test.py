@@ -4,7 +4,16 @@ import unittest
 
 class Testes(unittest.TestCase):
     def teste_lampada(self):
-        self.assertEqual(ligar_lampada(1), "Luz Acesa")
+        self.assertEqual(
+            ligar_lampada(True),
+            "Por favor, insira apenas 1 ou 0",
+        )
+        self.assertTrue(
+            ligar_lampada(1),
+        )
+        self.assertFalse(
+            ligar_lampada(0),
+        )
 
     def teste_porcentagem(self):
         num_max = 3381
