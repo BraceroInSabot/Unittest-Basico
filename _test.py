@@ -7,7 +7,28 @@ class Testes(unittest.TestCase):
         self.assertEqual(ligar_lampada(1), "Luz Acesa")
 
     def teste_porcentagem(self):
-        self.assertEqual(porcentagem(num_max=3381, num=29), 980.49)
+        num_max = 3381
+        num = 29
+
+        self.assertEqual(
+            porcentagem(
+                num_max=num_max,
+                num=num,
+            ),
+            980.49,
+        )
+        self.assertFalse(
+            porcentagem(
+                num_max=f"{num_max}",
+                num=num,
+            ),
+        )
+        self.assertTrue(
+            porcentagem(
+                num_max=100,
+                num=10,
+            )
+        )
 
     def teste_carro(self):
         self.assertFalse(carro(motor=False, trancado=False))

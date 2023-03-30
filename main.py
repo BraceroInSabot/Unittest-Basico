@@ -1,3 +1,6 @@
+from typing import Union
+
+
 def ligar_lampada(condicao: int) -> str:
     """
     Define o estado de uma lampada
@@ -13,7 +16,10 @@ def ligar_lampada(condicao: int) -> str:
         return "Luz Acesa"
 
 
-def porcentagem(num_max: float, num: float) -> float:
+def porcentagem(
+    num_max: Union[float, int],
+    num: Union[float, int],
+) -> Union[float, int]:
     """
     Retorna a o valor da porcentagem de num% de num_max (100%)
 
@@ -24,6 +30,11 @@ def porcentagem(num_max: float, num: float) -> float:
     num_max: float -> indica o 100% de um valor
     num: float -> indica a uma porcentagem
     """
+    if type(num) not in [float, int] or type(num_max) not in [float, int]:
+        print(
+            f"Erro, por favor passe um valor válido. \nnum_max: {num_max} - {type(num_max)}\nnum: {num} - {type(num)}"
+        )
+        return False
 
     num = (num / 100) * num_max
     # print(float("{:.2f}".format(num)))
