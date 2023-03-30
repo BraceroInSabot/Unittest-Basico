@@ -1,7 +1,7 @@
 from typing import Union
 
 
-def ligar_lampada(condicao: int) -> str:
+def ligar_lampada(condicao: int) -> Union[str, bool]:
     """
     Define o estado de uma lampada
 
