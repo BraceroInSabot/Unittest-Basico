@@ -46,7 +46,7 @@ def porcentagem(
     return float("{:.2f}".format(num))
 
 
-def carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
+def ligar_carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
     """
     Simula uma pessoa ao entrar em um carro, ele precisa estar destrancado e com o motor ligado para dar partida.
 
@@ -55,8 +55,12 @@ def carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
     motor: bool -> estado do motor, ligado ou desligado
     trancado: bool -> estado das fechaduras do carro, trancadas ou destrancadas
     """
-
-    if rodas >= 4:
+    if (
+        rodas >= 4
+        and type(rodas) in [int]
+        and type(motor) in [bool]
+        and type(trancado) in [bool]
+    ):
         if not trancado and motor:
             print("vrum vrum")
             return True
@@ -66,6 +70,9 @@ def carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
         elif trancado or motor:
             print("onde estão as chaves? na ignição ou no seu bolso?")
             return False
+    elif type(rodas) in [float]:
+        print("O valor de rodas precisa ser decimal")
+        return False
 
     print("O carro precisa das suas rodas para andar")
     return False
@@ -74,4 +81,4 @@ def carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
 if __name__ == "__main__":
     ligar_lampada(1)
     porcentagem(num_max=100, num=10)
-    carro(motor=True, trancado=False)
+    ligar_carro(motor=True, trancado=False)

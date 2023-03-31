@@ -1,4 +1,4 @@
-from main import ligar_lampada, porcentagem, carro
+from main import ligar_lampada, porcentagem, ligar_carro
 import unittest
 
 
@@ -40,7 +40,32 @@ class Testes(unittest.TestCase):
         )
 
     def teste_carro(self):
-        self.assertFalse(carro(motor=False, trancado=False))
+        """
+        Tabela verdade
+        _M_|_T_|
+         F | F |
+         T | T |
+         F | T |
+         T | F |
+        """
+        self.assertFalse(ligar_carro(motor=False, trancado=False))
+        self.assertFalse(ligar_carro(motor=True, trancado=True))
+        self.assertFalse(ligar_carro(motor=False, trancado=True))
+        # Caso onde o carro deve ligar, pois está destrancado e o motor já ligado
+        self.assertTrue(ligar_carro(motor=True, trancado=False))
+
+        for test in range(0, 3 + 1):
+            self.assertFalse(ligar_carro(rodas=test))
+
+        self.assertFalse(
+            ligar_carro(
+                rodas=True,
+                motor=True,
+                trancado=False,
+            )
+        )
+
+        self.assertFalse(ligar_carro(motor="4"))
 
 
 if __name__ == "__main__":
