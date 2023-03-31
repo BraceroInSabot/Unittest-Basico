@@ -56,7 +56,7 @@ class LigarCarro(unittest.TestCase):
 
         TABELA VERDADE
 
-        _M_|_T_|_M_->_T_|
+        _M_|_T_|_!(M_->_T)_|
          F | F |___F____|
          T | T |___F____|
          F | T |___F____|
