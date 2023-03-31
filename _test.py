@@ -2,8 +2,11 @@ from main import ligar_lampada, porcentagem, ligar_carro
 import unittest
 
 
-class Testes(unittest.TestCase):
+class LigarLampada(unittest.TestCase):
     def teste_lampada(self):
+        """
+        Testa a função importada "ligar_lampada" de 3 maneiras diferentes
+        """
         self.assertEqual(
             ligar_lampada(True),
             "Por favor, insira apenas 1 ou 0",
@@ -14,6 +17,12 @@ class Testes(unittest.TestCase):
         self.assertFalse(
             ligar_lampada(0),
         )
+
+
+class Porcentagem(unittest.TestCase):
+    """
+    Testa a função importada "porcentagem" de 3 maneiras diferentes
+    """
 
     def teste_porcentagem(self):
         num_max = 3381
@@ -39,18 +48,24 @@ class Testes(unittest.TestCase):
             )
         )
 
+
+class LigarCarro(unittest.TestCase):
     def teste_carro(self):
         """
-        Tabela verdade
-        _M_|_T_|
-         F | F |
-         T | T |
-         F | T |
-         T | F |
+        Testa a função importada "ligar_carro" em 10 vezes diferentes. Por conta de haver dois parametros de valores booleanos, foi necessário fazer a Tabela Verdade
+
+        TABELA VERDADE
+
+        _M_|_T_|_M_->_T_|
+         F | F |___F____|
+         T | T |___F____|
+         F | T |___F____|
+         T | F |___T____|
         """
         self.assertFalse(ligar_carro(motor=False, trancado=False))
         self.assertFalse(ligar_carro(motor=True, trancado=True))
         self.assertFalse(ligar_carro(motor=False, trancado=True))
+
         # Caso onde o carro deve ligar, pois está destrancado e o motor já ligado
         self.assertTrue(ligar_carro(motor=True, trancado=False))
 

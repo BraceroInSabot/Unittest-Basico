@@ -48,7 +48,7 @@ def porcentagem(
 
 def ligar_carro(rodas: int = 4, motor: bool = False, trancado: bool = True) -> bool:
     """
-    Simula uma pessoa ao entrar em um carro, ele precisa estar destrancado e com o motor ligado para dar partida.
+    Simula as condições que uma pessoa sem a chave de um carro precisaria para poder dirigir nele. Ele precisa estar destrancado e com o motor ligado.
 
     :param:
     rodas: int -> quantas rodas o carro possui
