@@ -3,7 +3,7 @@
 
 <br>
 
-<img src="terminal.png" width="100%" height="100%">
+<img src="terminal.PNG" width="100%" height="100%">
 
 <br>
 
